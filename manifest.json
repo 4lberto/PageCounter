@@ -1,0 +1,23 @@
+{
+  "name": "Page Counter",
+  "version": "0.2.5",
+  "description": "Counts the number of pages loaded by chrome from a date. Shows usage stats",
+   "icons": {
+      "128": "icon.png"
+   },
+  "background_page": "background.html",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "popup":"popup.html"
+  },
+  
+  
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contador_paginas.js"]
+      
+    }],
+  
+  "permissions":["tabs"]
+  }
