@@ -1,14 +1,18 @@
 {
+  "manifest_version":2,
   "name": "Page Counter",
-  "version": "0.2.5",
-  "description": "Counts the number of pages loaded by chrome from a date. Shows usage stats",
+  "version": "0.2.6",
+  "description": "Counts the number of pages loaded by Chrome from the installation date or the last reset date. Shows usage stats too",
    "icons": {
       "128": "icon.png"
    },
-  "background_page": "background.html",
+  "background": {
+    "scripts":["background.js"]
+
+  },
   "browser_action": {
     "default_icon": "icon.png",
-    "popup":"popup.html"
+    "default_popup":"popup.html"
   },
   
   
