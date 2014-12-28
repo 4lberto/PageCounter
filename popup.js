@@ -21,15 +21,22 @@
             //Resets start time
             function resetCounter()
             {
-                background.tiempo_inicio = new Date();
-                background.contador_visitas = 0;
-                localStorage.PC_tiempo_acumulado = 0;
-                background.tiempo_acumulado = 0;
-                background.start_timer = new Date();
-                background.guardaEstadisticas();    //Resets Stats
-                background.badge();
-                
-                window.location.reload();
+                if(confirm('This will reset everything to 0 and you will lost your progress, are you sure?'))
+                {
+                    if(confirm("really really sure?"))
+                    {
+                        background.tiempo_inicio = new Date();
+                        background.contador_visitas = 0;
+                        localStorage.PC_tiempo_acumulado = 0;
+                        background.tiempo_acumulado = 0;
+                        background.start_timer = new Date();
+                        background.badge();
+                        background.guardaEstadisticas();    //Resets Stats
+
+                        window.location.reload();
+                    }
+                }
+      
             }
             
             function pintaEstadisticas()
@@ -92,5 +99,12 @@
             {
                 pintaCuentayTiempo();
                 pintaEstadisticas();
+
+                var link = document.getElementById('resetButton');
+                link.addEventListener('click', function() {
+                    resetCounter();
+                });
+
             }
             document.addEventListener('DOMContentLoaded', init);
+    

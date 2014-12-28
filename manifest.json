@@ -1,7 +1,7 @@
 {
   "manifest_version":2,
   "name": "Page Counter",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Counts the number of pages loaded by Chrome from the installation date or the last reset date. Shows usage stats too",
    "icons": {
       "128": "icon.png"

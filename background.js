@@ -7,7 +7,7 @@
         
         var tiempo_inicio = new Date();	    //Check the time when chrome loads
         var start_timer = new Date();	    //To save the amount of time browsing this session
-        var tiempo_acumulado = new Date(0);
+        var tiempo_acumulado = 0
         
         
         chrome.browserAction.setTitle({title:"Check usage stats"});
@@ -66,15 +66,13 @@
             {
                 contador_visitas = 0;
                 tiempo_inicio = new Date();
-                tiempo_acumulado = new Date();
-                tiempo_acumulado.setTime(0);
-             
+                tiempo_acumulado = 0
             }
             else  //There are data in localstorage
             {
                 contador_visitas = JSON.parse(localStorage.PC_visitas);
                 tiempo_inicio = new Date((Number(JSON.parse(localStorage.PC_tiempo))));
-                tiempo_acumulado = new Date((Number(JSON.parse(localStorage.PC_tiempo_acumulado))));
+                tiempo_acumulado = (Number(JSON.parse(localStorage.PC_tiempo_acumulado)));
             }
         }
 		
@@ -94,7 +92,7 @@
             var ahora = new Date();	//current time 
             
             
-            localStorage.PC_tiempo_acumulado = JSON.stringify(tiempo_acumulado.getTime()+(ahora.getTime()-start_timer.getTime()));
+            localStorage.PC_tiempo_acumulado = JSON.stringify(tiempo_acumulado+(ahora.getTime()-start_timer.getTime()));
         }
 
 
@@ -120,7 +118,7 @@
         function getAcumulado()
         {
             var ahora = new Date();
-            return (ahora.getTime() - start_timer.getTime()) + tiempo_acumulado.getTime();
+            return (ahora.getTime() - start_timer.getTime()) + tiempo_acumulado;
       
         }
     
